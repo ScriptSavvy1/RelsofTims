@@ -20,8 +20,15 @@ function OrdersPage() {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Orders</h1>
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
+          Orders
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400">
+          Track and manage all your orders
+        </p>
+      </div>
       <OrderForm
         order={editingOrder}
         onSuccess={handleSuccess}
@@ -33,4 +40,5 @@ function OrdersPage() {
 }
 
 export default OrdersPage
+
 
