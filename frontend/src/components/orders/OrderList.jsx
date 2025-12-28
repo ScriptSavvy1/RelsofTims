@@ -151,12 +151,12 @@ function OrderList({ onEdit, refreshTrigger }) {
     } else if (statusLower === 'cancelled') {
       return 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300'
     }
-    return 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300'
+    return 'bg-slate-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300'
   }
 
   if (loading) {
     return (
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 border border-gray-100 dark:border-slate-700">
+      <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-md p-6 border border-slate-200 dark:border-slate-700">
         <div className="flex justify-center items-center py-12">
           <div className="flex flex-col items-center space-y-4">
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#004e98] dark:border-[#00a8e8]"></div>
@@ -169,15 +169,15 @@ function OrderList({ onEdit, refreshTrigger }) {
 
   if (error) {
     return (
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 border border-red-200 dark:border-red-800">
+      <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-md p-6 border border-red-200 dark:border-red-800">
         <div className="text-center text-red-600 dark:text-red-400">{error}</div>
       </div>
     )
   }
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden border border-gray-100 dark:border-slate-700 transition-colors duration-300">
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900">
+    <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden border border-slate-200 dark:border-slate-700 transition-colors duration-300">
+      <div className="px-6 py-4 border-b border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900">
         <div className="flex flex-col space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center space-x-2">
@@ -194,7 +194,7 @@ function OrderList({ onEdit, refreshTrigger }) {
                   setStatusFilter(e.target.value)
                   setCurrentPage(1)
                 }}
-                className="px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] transition-colors"
+                className="px-4 py-2 border border-slate-400 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] transition-colors"
               >
                 <option value="all">All Status</option>
                 <option value="pending">Pending</option>
@@ -211,7 +211,7 @@ function OrderList({ onEdit, refreshTrigger }) {
                     setSearchTerm(e.target.value)
                     setCurrentPage(1)
                   }}
-                  className="pl-10 pr-4 py-2 w-full sm:w-64 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] transition-colors"
+                  className="pl-10 pr-4 py-2 w-full sm:w-64 border border-slate-400 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] transition-colors"
                 />
               </div>
             </div>
@@ -235,7 +235,7 @@ function OrderList({ onEdit, refreshTrigger }) {
         <>
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200 dark:divide-slate-700">
-              <thead className="bg-gray-50 dark:bg-slate-900">
+              <thead className="bg-slate-100 dark:bg-slate-900">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     <SortButton field="orderNumber">Order ID</SortButton>
@@ -263,11 +263,11 @@ function OrderList({ onEdit, refreshTrigger }) {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white dark:bg-slate-800 divide-y divide-gray-200 dark:divide-slate-700">
+              <tbody className="bg-slate-50 dark:bg-slate-800 divide-y divide-slate-300 dark:divide-slate-700">
                 {paginatedOrders.map((order) => (
                   <tr
                     key={order._id || order.id}
-                    className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors duration-150"
+                    className="hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors duration-150"
                   >
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                       #{order.orderNumber || order._id?.slice(-6) || order.id?.slice(-6)}
@@ -321,7 +321,7 @@ function OrderList({ onEdit, refreshTrigger }) {
           </div>
 
           {totalPages > 1 && (
-            <div className="px-6 py-4 border-t border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900">
+            <div className="px-6 py-4 border-t border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900">
               <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
                 <div className="text-sm text-gray-700 dark:text-gray-300">
                   Showing {(currentPage - 1) * itemsPerPage + 1} to{' '}
@@ -332,7 +332,7 @@ function OrderList({ onEdit, refreshTrigger }) {
                   <button
                     onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
                     disabled={currentPage === 1}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-slate-50 dark:bg-slate-800 border border-slate-400 dark:border-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     Previous
                   </button>
@@ -356,7 +356,7 @@ function OrderList({ onEdit, refreshTrigger }) {
                               className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                                 currentPage === page
                                   ? 'bg-[#004e98] dark:bg-[#00a8e8] text-white'
-                                  : 'text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                  : 'text-gray-700 dark:text-gray-300 bg-slate-50 dark:bg-slate-800 border border-slate-400 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700'
                               }`}
                             >
                               {page}
@@ -368,7 +368,7 @@ function OrderList({ onEdit, refreshTrigger }) {
                   <button
                     onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
                     disabled={currentPage === totalPages}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-slate-50 dark:bg-slate-800 border border-slate-400 dark:border-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     Next
                   </button>

@@ -75,7 +75,7 @@ function Dashboard() {
     const trendColor = trend === 'up' ? 'text-green-600 dark:text-green-400' : trend === 'down' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-400'
 
     return (
-      <div className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-slate-700">
+      <div className="group relative bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-200 dark:border-slate-700">
         {/* Gradient accent bar */}
         <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${gradientFrom} ${gradientTo}`}></div>
         
@@ -140,19 +140,19 @@ function Dashboard() {
 
       {/* Quick Stats Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
+        <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
           <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Active Today</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">
             {stats.orders > 0 ? Math.floor(stats.orders * 0.1) : 0}
           </p>
         </div>
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
+        <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
           <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Growth Rate</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">
             {stats.customers > 0 ? '+12%' : '0%'}
           </p>
         </div>
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
+        <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
           <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Avg. Orders</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">
             {stats.customers > 0 ? (stats.orders / stats.customers).toFixed(1) : 0}

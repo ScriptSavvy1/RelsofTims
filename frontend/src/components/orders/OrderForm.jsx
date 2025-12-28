@@ -114,7 +114,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
   }
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 mb-6 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-md p-6 mb-6 border border-slate-200 dark:border-slate-700 transition-colors duration-300">
       <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
         {order ? 'Edit Order' : 'Add New Order'}
       </h2>
@@ -136,7 +136,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
               onChange={handleChange}
               required
               disabled={loadingCustomers}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent disabled:bg-gray-100 dark:disabled:bg-slate-800 disabled:opacity-50 transition-colors"
+              className="w-full px-3 py-2 border border-slate-400 dark:border-slate-600 rounded-lg shadow-sm bg-slate-50 dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent disabled:bg-slate-200 dark:disabled:bg-slate-800 disabled:opacity-50 transition-colors"
             >
               <option value="">Select a customer</option>
               {customers.map((customer) => (
@@ -157,7 +157,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
               value={formData.productName}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-slate-400 dark:border-slate-600 rounded-lg shadow-sm bg-slate-50 dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
             />
           </div>
           <div>
@@ -172,7 +172,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
               onChange={handleChange}
               required
               min="1"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-slate-400 dark:border-slate-600 rounded-lg shadow-sm bg-slate-50 dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
             />
           </div>
           <div>
@@ -188,7 +188,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
               required
               min="0"
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-slate-400 dark:border-slate-600 rounded-lg shadow-sm bg-slate-50 dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
             />
           </div>
           <div>
@@ -202,7 +202,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
               value={formData.orderDate}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-slate-400 dark:border-slate-600 rounded-lg shadow-sm bg-slate-50 dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
             />
           </div>
           <div>
@@ -215,7 +215,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
               value={formData.status}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg shadow-sm bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-slate-400 dark:border-slate-600 rounded-lg shadow-sm bg-slate-50 dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#004e98] dark:focus:ring-[#00a8e8] focus:border-transparent transition-colors"
             >
               <option value="pending">Pending</option>
               <option value="processing">Processing</option>
@@ -236,7 +236,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
             <button
               type="button"
               onClick={onCancel}
-              className="px-6 py-2 bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:focus:ring-slate-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 transition-all duration-200 font-medium"
+              className="px-6 py-2 bg-slate-300 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-slate-400 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-500 dark:focus:ring-slate-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 transition-all duration-200 font-medium"
             >
               Cancel
             </button>
