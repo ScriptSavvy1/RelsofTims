@@ -80,8 +80,8 @@ function OrderList({ onEdit, refreshTrigger }) {
     let filtered = orders.filter((order) => {
       const matchesSearch =
         (order.orderNumber?.toString() || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (order.customerName || order.customer?.name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (order.productName || order.product || '').toLowerCase().includes(searchTerm.toLowerCase())
+        (order.customerName || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (order.productName || '').toLowerCase().includes(searchTerm.toLowerCase())
       
       const matchesStatus = statusFilter === 'all' || (order.status || 'pending') === statusFilter
       
@@ -91,12 +91,12 @@ function OrderList({ onEdit, refreshTrigger }) {
     filtered.sort((a, b) => {
       let aValue, bValue
       
-      if (sortField === 'orderDate' || sortField === 'date') {
-        aValue = new Date(a.orderDate || a.date || 0)
-        bValue = new Date(b.orderDate || b.date || 0)
-      } else if (sortField === 'amount' || sortField === 'total') {
-        aValue = a.amount || a.total || 0
-        bValue = b.amount || b.total || 0
+      if (sortField === 'orderDate') {
+        aValue = new Date(a.orderDate || 0)
+        bValue = new Date(b.orderDate || 0)
+      } else if (sortField === 'amount') {
+        aValue = a.amount || 0
+        bValue = b.amount || 0
       } else if (sortField === 'quantity') {
         aValue = a.quantity || 0
         bValue = b.quantity || 0
@@ -266,26 +266,26 @@ function OrderList({ onEdit, refreshTrigger }) {
               <tbody className="bg-slate-50 dark:bg-slate-800 divide-y divide-slate-300 dark:divide-slate-700">
                 {paginatedOrders.map((order) => (
                   <tr
-                    key={order._id || order.id}
+                    key={order.id}
                     className="hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors duration-150"
                   >
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                      #{order.orderNumber || order._id?.slice(-6) || order.id?.slice(-6)}
+                      #{order.orderNumber || order.id}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                      {order.customerName || order.customer?.name || '-'}
+                      {order.customerName || '-'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                      {order.productName || order.product || '-'}
+                      {order.productName || '-'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                       {order.quantity || '-'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                      {formatCurrency(order.amount || order.total)}
+                      {formatCurrency(order.amount)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                      {formatDate(order.orderDate || order.date)}
+                      {formatDate(order.orderDate)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
@@ -306,7 +306,7 @@ function OrderList({ onEdit, refreshTrigger }) {
                         </Tooltip>
                         <Tooltip content="Delete order">
                           <button
-                            onClick={() => handleDelete(order._id || order.id)}
+                            onClick={() => handleDelete(order.id)}
                             className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors duration-200"
                           >
                             <TrashIcon className="h-5 w-5" />

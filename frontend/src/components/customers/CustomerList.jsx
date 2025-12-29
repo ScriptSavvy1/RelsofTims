@@ -187,7 +187,7 @@ function CustomerList({ onEdit, refreshTrigger }) {
               <tbody className="bg-slate-50 dark:bg-slate-800 divide-y divide-slate-300 dark:divide-slate-700">
                 {paginatedCustomers.map((customer) => (
                   <tr
-                    key={customer._id || customer.id}
+                    key={customer.id}
                     className="hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors duration-150"
                   >
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
@@ -214,7 +214,7 @@ function CustomerList({ onEdit, refreshTrigger }) {
                         </Tooltip>
                         <Tooltip content="Delete customer">
                           <button
-                            onClick={() => handleDelete(customer._id || customer.id)}
+                            onClick={() => handleDelete(customer.id)}
                             className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors duration-200"
                           >
                             <TrashIcon className="h-5 w-5" />

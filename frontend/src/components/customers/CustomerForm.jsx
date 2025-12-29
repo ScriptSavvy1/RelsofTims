@@ -44,7 +44,7 @@ function CustomerForm({ customer, onSuccess, onCancel }) {
 
     try {
       if (customer) {
-        await customersAPI.update(customer._id || customer.id, formData)
+        await customersAPI.update(customer.id, formData)
       } else {
         await customersAPI.create(formData)
       }

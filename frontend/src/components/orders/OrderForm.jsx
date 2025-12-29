@@ -34,11 +34,11 @@ function OrderForm({ order, onSuccess, onCancel }) {
   useEffect(() => {
     if (order) {
       setFormData({
-        customerId: order.customerId || order.customer?._id || order.customer?.id || '',
-        customerName: order.customerName || order.customer?.name || '',
-        productName: order.productName || order.product || '',
+        customerId: order.customerId || '',
+        customerName: order.customerName || '',
+        productName: order.productName || '',
         quantity: order.quantity || '',
-        amount: order.amount || order.total || '',
+        amount: order.amount || '',
         orderDate: order.orderDate
           ? new Date(order.orderDate).toISOString().split('T')[0]
           : new Date().toISOString().split('T')[0],
@@ -60,7 +60,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
   const handleChange = (e) => {
     const { name, value } = e.target
     if (name === 'customerId') {
-      const selectedCustomer = customers.find((c) => (c._id || c.id) === value)
+      const selectedCustomer = customers.find((c) => c.id === value)
       setFormData((prev) => ({
         ...prev,
         customerId: value,
@@ -91,7 +91,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
       }
 
       if (order) {
-        await ordersAPI.update(order._id || order.id, orderData)
+        await ordersAPI.update(order.id, orderData)
       } else {
         await ordersAPI.create(orderData)
       }
@@ -140,7 +140,7 @@ function OrderForm({ order, onSuccess, onCancel }) {
             >
               <option value="">Select a customer</option>
               {customers.map((customer) => (
-                <option key={customer._id || customer.id} value={customer._id || customer.id}>
+                <option key={customer.id} value={customer.id}>
                   {customer.name}
                 </option>
               ))}
